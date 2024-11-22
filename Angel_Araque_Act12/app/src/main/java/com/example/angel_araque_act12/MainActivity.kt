@@ -13,14 +13,14 @@ class MainActivity : AppCompatActivity() {
 
         var toggle:ToggleButton = findViewById(R.id.toggleButton)
         var scrollBar:HorizontalScrollView = findViewById(R.id.horizontalView)
-        if(toggle.isChecked) {
-            scrollBar.set = false;
-        }
-        else{
-            scrollBar.isHorizontalScrollBarEnabled = true;
-        }
+        toggle.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                scrollBar.scrollBarSize = 50
+            } else {
+                scrollBar.scrollBarSize = 0
+            }
 
-
+        }
     }
 
 }
